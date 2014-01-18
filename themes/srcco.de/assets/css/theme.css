@@ -1,0 +1,149 @@
+body
+{
+	margin: 0;
+	color: #8c837a;
+	background: #494949;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}
+a
+{
+	color: #417ebe;
+	text-decoration: none;
+}
+a:hover
+{
+	color: #a7794f;
+	text-decoration: underline;
+}
+hr {
+    border-top: 1px solid #8c837a;
+    border-right: none;
+    border-bottom: none;
+    border-left: none;
+}
+img
+{
+	border: none;
+}
+p
+{
+	margin: 10px 0;
+}
+h1
+{
+	font-size: 17px;
+	font-weight: bold;
+	color: #505050;
+	margin: 0 0 16px 0;
+	text-transform: uppercase;
+}
+h2
+{
+	font-size: 16px;
+	font-weight: bold;
+	color: #6d6964;
+	margin: 16px 0 10px 0;
+}
+h3
+{
+	font-size: 14px;
+	font-weight: bold;
+	color: #8c837a;
+	margin: 10px 0 6px 0;
+}
+ul
+{
+	margin: 10px 0 10px 20px;
+	padding: 0;
+}
+li 
+{
+	background: transparent;
+	padding: 0 0 0 24px;
+	margin: 6px 0px;
+	list-style: none;
+}
+#wrp
+{
+	margin: 0;
+	background: #5c5c5c url(../img/WrapperBackground.png) repeat top left;
+}
+#cont
+{
+	width: 815px;
+	text-align: left;
+	margin: 0 auto;
+	background: transparent url(../img/PageContainerBackground.png) repeat-y top left;
+}
+#page 
+{
+	position: relative;
+	width: 775px;
+	margin: 0px 20px;
+	background: transparent url(../img/PageBackground.png) repeat-y top left;
+}
+header
+{
+	height: 248px;
+	background: transparent url(../img/PageBackgroundTop.jpg) no-repeat top left;
+}
+header h1
+{
+	display: none;
+}
+nav
+{
+	border-right: 1px solid #d3c8c4;
+	float: left;
+	width: 140px;
+	margin-left: 32px;
+	display: inline; /* FIX IE double margin bug */
+}
+nav ul
+{
+	margin: 0;
+	padding: 10px 0px 0px 10px;
+}
+nav li
+{
+	padding: 0;
+	list-style: none;
+	margin: 0 0 10px 0;
+}
+#content
+{
+	margin-left: 240px;
+	width: 500px;
+}
+#ftr
+{
+	position: relative;
+	clear: both;
+	font-size: 11px;
+	height: 47px;
+	background: transparent url(../img/PageBackgroundBottom.jpg) no-repeat top left;
+}
+
+footer
+{
+	background: transparent url(../img/WrapperShadow.png) repeat-x top left;
+	padding: 20px;
+	text-align: left;
+}
+footer small
+{
+	font-size: 10px;
+	color: #606060;
+}
+footer small a
+{
+	color: #606060;
+	text-decoration: none;
+}
+
+h1 small {
+    float: right;
+	color: #8c837a;
+}
