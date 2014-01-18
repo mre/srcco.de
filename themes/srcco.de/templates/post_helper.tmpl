@@ -7,18 +7,6 @@
 {% endmacro %}
 
 
-{% macro html_translations(post) %}
-    {% if translations|length > 1 %}
-        {% for langname in translations.keys() %}
-            {% if langname != lang and post.is_translation_available(langname) %}
-                &nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="{{ post.permalink(langname) }}">{{ messages("Read in English", langname) }}</a>
-            {% endif %}
-        {% endfor %}
-    {% endif %}
-{% endmacro %}
-
-
 {% macro html_tags(post) %}
     {% if post.tags %}
         &nbsp;&nbsp;|&nbsp;&nbsp;{{ messages("More posts about") }}
@@ -27,7 +15,6 @@
         {% endfor %}
     {% endif %}
 {% endmacro %}
-
 
 
 {% macro html_pager(post) %}
@@ -44,29 +31,6 @@
             </li>
         {% endif %}
         </ul>
-    {% endif %}
-{% endmacro %}
-
-{% macro twitter_card_information(post) %}
-    {% if twitter_card and twitter_card['use_twitter_cards'] %}
-        <meta name="twitter:card" content="{{ twitter_card.get('card', 'summary')|e }}">
-        <meta name="og:url" content="{{ post.permalink(absolute=True) }}">
-        {% if 'site:id' in twitter_card %}
-            <meta name="twitter:site:id" content="{{ twitter_card['site:id'] }}">
-        {% elif 'site' in twitter_card %}
-            <meta name="twitter:site" content="{{ twitter_card['site'] }}">
-        {% endif %}
-        {% if 'creator:id' in twitter_card %}
-            <meta name="twitter:creator:id" content="{{ twitter_card['creator:id'] }}">
-        {% elif 'creator' in twitter_card %}
-            <meta name="twitter:creator" content="{{ twitter_card['creator'] }}">
-        {% endif %}
-        <meta name="og:title" content="{{ post.title()[:70]|e }}">
-        {% if post.description() %}
-            <meta name="og:description" content="{{ post.description()[:200]|e }}">
-        {% else %}
-            <meta name="og:description" content="{{ post.text(strip_html=True)[:200]|e }}">
-        {% endif %}
     {% endif %}
 {% endmacro %}
 

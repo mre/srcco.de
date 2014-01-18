@@ -67,11 +67,3 @@
     {% endfor %}
 {% endmacro %}
 
-
-{% macro html_translations() %}
-    {% for langname in translations.keys() %}
-        {% if langname != lang %}
-            <a href="{{ _link("index", None, langname) }}">{{ messages("LANGUAGE", langname) }}</a>
-        {% endif %}
-    {% endfor %}
-{% endmacro %}

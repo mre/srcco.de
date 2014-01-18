@@ -38,15 +38,18 @@ h1
 	color: #505050;
 	margin: 0 0 16px 0;
 	text-transform: uppercase;
-    position: relative;
-    padding-right: 160px;
 }
-h1 small {
+.teaser h1 {
+    padding-right: 160px;
+    position: relative;
+}
+.teaser h1 time {
     position: absolute;
     text-align: right;
 	color: #8c837a;
     top: 1px;
     right: 0px;
+    font-size: 14px;
 }
 h2
 {
@@ -114,7 +117,7 @@ nav
 nav ul
 {
 	margin: 0;
-	padding: 10px 0px 0px 10px;
+	padding: 10px 0 0 0;
 }
 nav li
 {
@@ -122,6 +125,10 @@ nav li
 	list-style: none;
     background: transparent;
 	margin: 0 0 10px 0;
+}
+nav li a {
+    display: block;
+    padding: 0 10px;
 }
 #content
 {
@@ -170,6 +177,10 @@ ul.pager .next {
 
 article {
     margin-bottom: 32px;
+}
+article small {
+    display: block;
+    margin: -10px 0 20px 0;
 }
 img.left {
     float: left;
