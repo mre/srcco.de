@@ -6,6 +6,9 @@
 .. description: 
 .. type: text
 
+.. image:: ../galleries/GnuCash_logo.png
+   :class: left
+
 Since 2002 I'm using GnuCash to track my personal accounts, incomes and expenses.
 Just recently I discovered the `GnuCash mobile`_ Android app. After importing my GnuCash account tree into the mobile app I could easily add expense transactions.
 The only problem was: How do I get the recorded transactions back into my GnuCash desktop application? The mobile app supports exporting transactions to QIF or OFX files.

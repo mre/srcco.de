@@ -6,12 +6,17 @@
 .. description: 
 .. type: text
 
+.. image:: ../galleries/nikola-tesla.thumbnail.jpg
+   :class: left
+
 This site was down for quite some time. I did not want to deploy the old PHP-based site again and therefore looked for alternatives.
 I never used a static site generator before, but as this site has only a single author (me_), I decided to go for it.
 Python_ is my favorite programming language, so the site generation tool should also be Python based. 
 I started to look at the `Python Wiki blog software list`_ and quickly narrowed my choice down to Nikola_:
 
 .. TEASER_END
+
+.. class:: clear
 
 * Nikola looks more lightweight than Django based Hyde 
 * Nikola supports Jinja2_ templates which I'm happily using in various projects.

@@ -171,3 +171,12 @@ ul.pager .next {
 article {
     margin-bottom: 32px;
 }
+img.left {
+    float: left;
+    margin: 0 16px 16px 0;
+    max-height: 140px;
+    max-width: 140px;
+}
+.clear {
+    clear: both;
+}
