@@ -38,6 +38,15 @@ h1
 	color: #505050;
 	margin: 0 0 16px 0;
 	text-transform: uppercase;
+    position: relative;
+    padding-right: 160px;
+}
+h1 small {
+    position: absolute;
+    text-align: right;
+	color: #8c837a;
+    top: 1px;
+    right: 0px;
 }
 h2
 {
@@ -60,10 +69,10 @@ ul
 }
 li 
 {
-	background: transparent;
+	background: transparent url(../img/bullet.png) no-repeat 2px 4px;
 	padding: 0 0 0 24px;
 	margin: 6px 0px;
-	list-style: none;
+	list-style: none; 
 }
 #wrp
 {
@@ -111,6 +120,7 @@ nav li
 {
 	padding: 0;
 	list-style: none;
+    background: transparent;
 	margin: 0 0 10px 0;
 }
 #content
@@ -144,7 +154,20 @@ footer small a
 	text-decoration: none;
 }
 
-h1 small {
+ul.pager {
+    margin: 40px 0 0 0;
+}
+ul.pager li {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+}
+ul.pager .next {
     float: right;
-	color: #8c837a;
+    width: 300px;
+    text-align: right;
+}
+
+article {
+    margin-bottom: 32px;
 }

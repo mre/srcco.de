@@ -1,7 +1,7 @@
 .. title: Starting over with Nikola
 .. slug: starting-over-with-nikola
 .. date: 2014/01/12 22:48:52
-.. tags: nikola
+.. tags: nikola, python
 .. link: 
 .. description: 
 .. type: text
@@ -10,6 +10,8 @@ This site was down for quite some time. I did not want to deploy the old PHP-bas
 I never used a static site generator before, but as this site has only a single author (me_), I decided to go for it.
 Python_ is my favorite programming language, so the site generation tool should also be Python based. 
 I started to look at the `Python Wiki blog software list`_ and quickly narrowed my choice down to Nikola_:
+
+.. TEASER_END
 
 * Nikola looks more lightweight than Django based Hyde 
 * Nikola supports Jinja2_ templates which I'm happily using in various projects.
