@@ -212,7 +212,7 @@ COMPILERS = {
 # And then do a backup, or run `nikola ping` from the `ping`
 # plugin (`nikola install_plugin ping`).
 # To do manual deployment, set it to []
-# DEPLOY_COMMANDS = []
+DEPLOY_COMMANDS = ['find output -type f -exec chmod o+r \{\} \;', 'rsync -rav --delete output/ indus:/var/www/srcco.de']
 
 # Where the output site should be located
 # If you don't use an absolute path, it will be considered as relative
@@ -386,7 +386,7 @@ COMMENT_SYSTEM = ""
 # depends on what comment system you use. The default is
 # "nikolademo" which is a test account for Disqus. More information
 # is in the manual.
-# COMMENT_SYSTEM_ID = "nikolademo"
+COMMENT_SYSTEM_ID = ""
 
 # Enable annotations using annotateit.org?
 # If set to False, you can still enable them for individual posts and pages
@@ -697,3 +697,20 @@ LOGGING_HANDLERS = {
 # It can be anything, data, functions, modules, etc.
 
 GLOBAL_CONTEXT = {}
+
+# List XML-RPC services (recommended) in PING_XMLRPC_SERVICES and HTTP
+# GET services (web pages) in PING_GET_SERVICES.
+# Entries pointing to domains, such as Ping-o-Matic, must end with
+# a forward slash to avoid having "/RPC2" appended automatically.
+# Consider adding `nikola ping` as the last entry in DEPLOY_COMMANDS.
+PING_XMLRPC_SERVICES = [
+   "http://blogsearch.google.com/ping/RPC2",
+   "http://ping.blogs.yandex.ru/RPC2",
+   "http://ping.baidu.com/ping/RPC2",
+   "http://rpc.pingomatic.com/",
+]
+
+PING_GET_SERVICES = [
+   "http://www.bing.com/webmaster/ping.aspx?sitemap={0}".format(SITE_URL+'sitemap.xml'),
+]
+
