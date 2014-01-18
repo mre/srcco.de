@@ -107,11 +107,11 @@ header h1
 }
 nav
 {
-    font-size: 17px;
+    font-size: 20px;
 	border-right: 1px solid #d3c8c4;
 	float: left;
 	width: 50px;
-	margin-left: 24px;
+	margin-left: 18px;
 	display: inline; /* FIX IE double margin bug */
 }
 nav ul
