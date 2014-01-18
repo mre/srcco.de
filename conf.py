@@ -15,7 +15,7 @@ SITE_URL = "http://srcco.de/"
 # If not set, defaults to SITE_URL
 # BASE_URL = "http://getnikola.com/"
 BLOG_EMAIL = "henning@jacobs1.de"
-BLOG_DESCRIPTION = "Another tech blog"
+BLOG_DESCRIPTION = "Another tech blog, mostly about Python"
 
 # Nikola is multilingual!
 #
@@ -64,7 +64,7 @@ TRANSLATIONS = {
 NAVIGATION_LINKS = {
     DEFAULT_LANG: (
         ('/', 'Home'),
-        ('/archive.html', 'Archives'),
+        # ('/archive.html', 'Archives'),
         ('/categories/index.html', 'Tags'),
         ('/rss.xml', 'RSS'),
     ),
@@ -245,10 +245,28 @@ COMPILERS = {
 # Many filters are shipped with Nikola.  A list is available in the manual:
 # <http://getnikola.com/handbook.html#post-processing-filters>
 from nikola import filters
+from functools import partial
 import re
 WHITESPACE_PATTERN = re.compile('\s+')
+PRE_BLOCKS = re.compile(r'<pre.*?pre>', re.DOTALL)
+def repl(m, captures):
+    name = '$$CAPTURE-{}$$'.format(len(captures))
+    captures[name] = m.group(0)
+    return name
 def compress_whitespace(x):
-    return WHITESPACE_PATTERN.sub(u' ', x.decode('utf-8')).encode('utf-8')
+    '''
+    >>> compress_whitespace('a  b')
+    'a b'
+    >>> compress_whitespace('a <pre> \\n </pre> b')
+    'a <pre> \\n </pre> b'
+    '''
+    text = x.decode('utf8')
+    captures = {}
+    text = PRE_BLOCKS.sub(partial(repl, captures=captures), text)
+    text = WHITESPACE_PATTERN.sub(' ', text)
+    for key, val in captures.items():
+        text = text.replace(key, val)
+    return text.encode('utf8')
 FILTERS = {
     ".css": [filters.yui_compressor],
       ".js": [filters.yui_compressor],
@@ -296,7 +314,7 @@ FILTERS = {
 # #############################################################################
 
 # Data about post-per-page indexes
-# INDEXES_TITLE = ""  # If this is empty, the default is BLOG_TITLE
+#INDEXES_TITLE = ""  # If this is empty, the default is BLOG_TITLE
 # INDEXES_PAGES = ""  # If this is empty, the default is 'old posts page %d'
 # translated
 
@@ -307,7 +325,7 @@ THEME = "srcco.de"
 # "assets/css/code.css" this is ignored.
 # Can be any of autumn borland bw colorful default emacs friendly fruity manni
 # monokai murphy native pastie perldoc rrt tango trac vim vs
-# CODE_COLOR_SCHEME = 'default'
+CODE_COLOR_SCHEME = 'friendly'
 
 # If you use 'site-reveal' theme you can select several subthemes
 # THEME_REVEAL_CONFIG_SUBTHEME = 'sky'
@@ -625,7 +643,7 @@ COPY_SOURCES = False
 # TIMEZONE = 'UTC'
 
 # If webassets is installed, bundle JS and CSS to make site loading faster
-# USE_BUNDLES = True
+USE_BUNDLES = True
 
 # Plugins you don't want to use. Be careful :-)
 # DISABLED_PLUGINS = ["render_galleries"]

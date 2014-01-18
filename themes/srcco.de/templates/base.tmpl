@@ -25,7 +25,11 @@ lang="{{ lang }}">
                 </header>
                 <div id="body">
                     <nav>
-                        <ul>{{ base.html_navigation_links() }}</ul>
+                        <ul>
+                            <li><a href="{{ abs_link('/') }}" title="Home" rel="home"><i class="fa fa-fw fa-home"></i></a></li>
+                            <li><a href="{{ abs_link('/categories/') }}" title="Tags"><i class="fa fa-fw fa-tags"></i></a></li>
+                            <li><a href="{{ abs_link('/rss.xml') }}" title="RSS feed"><i class="fa fa-fw fa-rss"></i></a></li>
+                        </ul>
                     </nav>
                     <div id="content">
                         {% block content %}{% endblock %}

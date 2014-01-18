@@ -1,0 +1,5 @@
+*.swp
+.doit.db
+*.pyc
+cache
+output
