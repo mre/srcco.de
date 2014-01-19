@@ -226,9 +226,9 @@ pre {
         height: 124px;
         background-size: 100% 124px;
     }
-    nav { margin: 0 16px 16px 16px; width: auto; }
+    nav { margin: 0 16px 16px 0; width: auto; }
     nav ul { padding: 0; }
-    nav li a { padding: 0 10px 0 0; }
+    nav li a { padding: 0 10px 0 16px; }
     .teaser h1 { padding: 0; }
     .teaser h1 time { position: static; display: block; }
     
