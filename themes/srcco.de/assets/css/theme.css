@@ -211,3 +211,33 @@ ul.breadcrumb li {
 pre {
     overflow-x: auto;
 }
+
+@media (max-width: 480px) {
+    #cont {
+        width: 408px;
+        background-size: 100% 1px;
+    }
+    #page {
+        width: 388px;
+        margin: 0 10px;
+        background-size: 100% 217px;
+    }
+    header {
+        height: 124px;
+        background-size: 100% 124px;
+    }
+    nav { margin: 0 16px 16px 16px; width: auto; }
+    nav ul { padding: 0; }
+    nav li a { padding: 0 10px 0 0; }
+    .teaser h1 { padding: 0; }
+    .teaser h1 time { position: static; display: block; }
+    
+    #content {
+        width: auto;
+        margin: 0 16px;
+    }
+    #ftr {
+        height: 25px;
+        background-size: 100% 25px;
+    }
+}
