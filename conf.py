@@ -372,8 +372,8 @@ LICENSE = ""
 
 # A small copyright notice for the page footer (in HTML).
 # Default is ''
-CONTENT_FOOTER = 'Contents &copy; {date}         <a href="mailto:{email}">{author}</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         {license}'
-CONTENT_FOOTER = CONTENT_FOOTER.format(email=BLOG_EMAIL,
+CONTENT_FOOTER = 'Contents &copy; {date}         <a href="{link}">{author}</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         {license}'
+CONTENT_FOOTER = CONTENT_FOOTER.format(link='http://www.jacobs1.de',
                                        author=BLOG_AUTHOR,
                                        date=time.gmtime().tm_year,
                                        license=LICENSE)
