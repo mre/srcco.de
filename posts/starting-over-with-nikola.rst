@@ -29,6 +29,8 @@ I'm using Nikola's developer version directly from github:
    git clone git://github.com/getnikola/nikola.git
    cd nikola
    sudo ./setup.py install
+   sudo apt-get install python-dev python-pip python-lxml python-imaging
+   sudo pip install -r requirements-full.txt
 
 Starting a new Nikola site is fairly easy:
 
