@@ -26,6 +26,7 @@ hr {
 img
 {
 	border: none;
+    opacity: 0.9;
 }
 p
 {
@@ -113,6 +114,10 @@ nav
 	width: 50px;
 	margin-left: 18px;
 	display: inline; /* FIX IE double margin bug */
+    opacity: 0.8;
+}
+nav:hover {
+    opacity: 1.0;
 }
 nav ul
 {
