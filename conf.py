@@ -111,8 +111,8 @@ POSTS = (
     ("posts/*.txt", "posts", "post.tmpl"),
 )
 PAGES = (
-    ("stories/*.rst", "stories", "story.tmpl"),
-    ("stories/*.txt", "stories", "story.tmpl"),
+    ("pages/*.rst", "pages", "post.tmpl"),
+    ("pages/*.txt", "pages", "post.tmpl"),
 )
 
 # One or more folders containing files to be copied as-is into the output.
