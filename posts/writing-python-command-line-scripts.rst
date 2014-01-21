@@ -35,7 +35,7 @@ The Python ``argparse`` module is excellent for command line option parsing:
                         dest='loglevel')
     parser.add_argument('-q', '--quiet', help='Silent mode, only log warnings', action='store_const',
                         const=logging.WARN, dest='loglevel')
-    parser.add_argument('--dry-run', help='Noop, do not write anything', action='store_true')
+    parser.add_argument('--dry-run', help='No-op, do not write anything', action='store_true')
     args = parser.parse_args()
 
 There is something to watch out if you are defining command line options: Often you will need some sensitive data passed into your script,
@@ -139,9 +139,9 @@ DOs and DON'Ts
 * DO format your code according to PEP8_
 * DO use meaningful return codes (``sys.exit(retcode)``)
 * DON'T (never!) pass sensitive credentials (passwords) via command line options
-* DON'T (never!) print information which could contain sentive information (e.g. database connection strings)
+* DON'T (never!) print information which could contain sensitive information (e.g. database connection strings)
 * DON'T use ``print`` statements, use standard logging instead
-* DON'T use old-style string formatting (``%`` operator), use builtin logging format strings or ``"{}".format(..)``.
+* DON'T use old-style string formatting (``%`` operator), use built-in logging format strings or ``"{}".format(..)``.
 
 For pyflakes and code formatting (PEP8-like) I use my codevalidator.py_ script.
 
