@@ -193,6 +193,12 @@ img.left {
     max-height: 140px;
     max-width: 140px;
 }
+img.center {
+    display: block;
+    margin: 16px auto;
+    max-height: 300px;
+    max-width: 300px;
+}
 .clear {
     clear: both;
 }
