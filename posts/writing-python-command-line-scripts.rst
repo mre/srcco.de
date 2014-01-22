@@ -31,12 +31,15 @@ The Python ``argparse`` module is excellent for command line option parsing:
     
     from argparse import ArgumentParser 
     parser = ArgumentParser()
-    parser.add_argument('-v', '--verbose', help='Verbose (debug) logging', action='store_const', const=logging.DEBUG,
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument('-v', '--verbose', help='Verbose (debug) logging', action='store_const', const=logging.DEBUG,
                         dest='loglevel')
-    parser.add_argument('-q', '--quiet', help='Silent mode, only log warnings', action='store_const',
+    group.add_argument('-q', '--quiet', help='Silent mode, only log warnings', action='store_const',
                         const=logging.WARN, dest='loglevel')
     parser.add_argument('--dry-run', help='No-op, do not write anything', action='store_true')
     args = parser.parse_args()
+
+By using the ``add_mutually_exclusive_group``, the user is prevented from accidentally specifying both ``-v`` and ``-q`` (they would contradict each other).
 
 There is something to watch out if you are defining command line options: Often you will need some sensitive data passed into your script,
 e.g. user and password to connect to a database. As command line options are visible in shell history, in CRON logs, CRON mails and even remote via SNMP (!) **it should never be necessary to pass credentials via command line options**!

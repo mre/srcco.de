@@ -29,10 +29,11 @@ def main(args):
 
 if __name__ == '__main__':
     parser = ArgumentParser(description=__doc__)
-    parser.add_argument('-v', '--verbose', help='Verbose (debug) logging', action='store_const', const=logging.DEBUG,
-                        dest='loglevel')
-    parser.add_argument('-q', '--quiet', help='Silent mode, only log warnings', action='store_const',
-                        const=logging.WARN, dest='loglevel')
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument('-v', '--verbose', help='Verbose (debug) logging', action='store_const', const=logging.DEBUG,
+                       dest='loglevel')
+    group.add_argument('-q', '--quiet', help='Silent mode, only log warnings', action='store_const',
+                       const=logging.WARN, dest='loglevel')
     parser.add_argument('--dry-run', help='Noop, do not write anything', action='store_true')
     parser.add_argument('file', nargs='+', help='Files to overwrite with FOOBAR')
     args = parser.parse_args()
