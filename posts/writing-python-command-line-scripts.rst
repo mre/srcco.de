@@ -39,7 +39,7 @@ The Python ``argparse`` module is excellent for command line option parsing:
     parser.add_argument('--dry-run', help='No-op, do not write anything', action='store_true')
     args = parser.parse_args()
 
-By using the ``add_mutually_exclusive_group``, the user is prevented from accidentally specifying both ``-v`` and ``-q`` (they would contradict each other).
+By using ``add_mutually_exclusive_group``, the user is prevented from accidentally specifying both ``-v`` and ``-q`` (they would contradict each other).
 
 There is something to watch out if you are defining command line options: Often you will need some sensitive data passed into your script,
 e.g. user and password to connect to a database. As command line options are visible in shell history, in CRON logs, CRON mails and even remote via SNMP (!) **it should never be necessary to pass credentials via command line options**!
