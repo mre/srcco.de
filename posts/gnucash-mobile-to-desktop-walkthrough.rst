@@ -44,7 +44,7 @@ I only kept the accounts interesting for mobile usage and removed intermediate "
 
 * Private Liabilities
 
-My top-level mobile accounts look like this:
+My top-level mobile accounts look like the following:
 
 .. image:: ../galleries/gnucash/gnucash-mobile-1.png
     :class: center
