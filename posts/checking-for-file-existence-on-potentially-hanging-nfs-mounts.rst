@@ -10,7 +10,7 @@
    :class: left
 
 NFS mounts can be annoying as they tend to "hang" (for various reasons).
-Here I show how I replaced `os.path.exists(..)` with a better solution for potentially hanging paths.
+Here I show how I replaced ``os.path.exists(..)`` with a better solution for potentially hanging paths.
 
 .. TEASER_END
 
@@ -23,10 +23,10 @@ The following code will "hang" if the NFS mount ``/mnt/nfs-shr`` is unresponsive
 
 I could not find any easy solution using the Python standard modules.
 But what about using a small timeout? In my case I just want to print "OK" if the file exists and can be read.
-Using the `subprocess32` module with timeouts and a reasonable command (`test`) works.
+Using the ``subprocess32`` module with timeouts and a reasonable command (``test``) works.
 
-The `subprocess32`_ module is a backport of features found in `subprocess` of Python 3 to use on 2.x.
-One of the best features of `subprocess32` is the `timeout` parameter for the `Popen` calls.
+The `subprocess32`_ module is a backport of features found in ``subprocess`` of Python 3 to use on 2.x.
+One of the best features of ``subprocess32`` is the ``timeout`` parameter for the ``Popen`` calls.
 
 Installing the module as always:
 
