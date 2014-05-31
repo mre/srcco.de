@@ -1,6 +1,6 @@
 .. link: 
 .. description: 
-.. tags: xfce
+.. tags: xfce, xubuntu
 .. date: 2014/05/29 17:44:44
 .. title: XFCE desktop switch with Super key
 .. slug: xfce-desktop-switch-with-super-key
