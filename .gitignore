@@ -1,5 +1,5 @@
 *.swp
-.doit.db
+.doit*
 *.pyc
 cache
 output

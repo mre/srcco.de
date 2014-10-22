@@ -268,11 +268,11 @@ def compress_whitespace(x):
         text = text.replace(key, val)
     return text.encode('utf8')
 FILTERS = {
-    ".css": [filters.yui_compressor],
-      ".js": [filters.yui_compressor],
-    ".jpg": [filters.jpegoptim],
-    ".png": [filters.optipng],
-    ".html": [filters.apply_to_file(compress_whitespace)]
+    #".css": [filters.yui_compressor],
+    # ".js": [filters.yui_compressor],
+    #".jpg": [filters.jpegoptim],
+    #".png": [filters.optipng],
+    # ".html": [filters.apply_to_file(compress_whitespace)]
 }
 
 # Expert setting! Create a gzipped copy of each generated file. Cheap server-

@@ -12,7 +12,7 @@
     <div class="h-entry" itemscope="itemscope" itemtype="http://schema.org/Article">
     {{ helper.html_title() }}
     <small>
-        {{ messages("Posted") }}: <time class="published dt-published" datetime="{{ post.date.isoformat() }}" itemprop="datePublished">{{ post.formatted_date(date_format) }}</time>
+        Posted: <time class="published dt-published" datetime="{{ post.date.isoformat() }}" itemprop="datePublished">{{ post.formatted_date(date_format) }}</time>
 		{{ helper.html_tags(post) }}
     </small>
     <div class="e-content" itemprop="articleBody text">
