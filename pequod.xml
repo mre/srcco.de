@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <manifest xmlns="http://tech.zalando.com/pequod/schema/registry" version="1.0">
     <resources>
+        <processes default-count="200"/>
     </resources>
     <filesystems>
         <temporary default-mb="500" mountpoint="/workdir"/>

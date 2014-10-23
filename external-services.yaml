@@ -1,0 +1,6 @@
+---
+external_services:
+    - service_name: github-https
+      service_version: '1'
+      external_host: github.com
+      external_port: 443
