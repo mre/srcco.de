@@ -4,3 +4,4 @@ external_services:
       service_version: '1'
       external_host: github.com
       external_port: 443
+      zone_name: bootstrap
