@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest xmlns="http://tech.zalando.com/pequod/schema/registry" version="1.0">
+    <resources>
+    </resources>
+    <filesystems>
+        <temporary default-mb="500" mountpoint="/workdir"/>
+    </filesystems>
+    <services>
+        <provide service-name="srcco-de" service-version="1" local-port="8000" health-check-http-path="/" health-check-timeout-seconds="120"/>
+        <require service-name="github-https" service-version="1" local-hostname="github.com" local-port="443"/>
+    </services>
+</manifest>
