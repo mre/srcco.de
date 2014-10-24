@@ -4,7 +4,7 @@ srcco.de
 
 .. code-block:: bash
 
-    $ docker run -v $(pwd):/workdir -t hjacobs/nikola build
+    $ docker run -u $(id -u) -v $(pwd):/workdir -t hjacobs/nikola build
 
 
 

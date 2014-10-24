@@ -496,7 +496,7 @@ COMMENT_SYSTEM_ID = ""
 # """
 
 # Hide link to source for the posts?
-HIDE_SOURCELINK = True
+SHOW_SOURCELINK = False
 # Copy the source files for your pages?
 # Setting it to False implies HIDE_SOURCELINK = True
 COPY_SOURCES = False
