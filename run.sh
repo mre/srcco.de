@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Main bash loop to serve srcco.de
+# see http://srcco.de/posts/docker-with-ipv6-and-resource-isolation.html
+
 echo 'Sleeping 10s..'
 sleep 10
 

@@ -128,6 +128,8 @@ What are the downsides?
 * The setup is overly complex for this tiny static blog site.
 
 
+You can find all source code of this site in `my github repository`_.
+
 You can find some more information about Pequod in the `Pequod Documentation`_.
 
 
@@ -142,4 +144,5 @@ You can find some more information about Pequod in the `Pequod Documentation`_.
 .. _Nikola: http://getnikola.com/
 .. _bootstrap YAML file: https://github.com/hjacobs/srcco.de/blob/master/pequod-bootstrap.yaml
 .. _access the Docker container directly: http://[2a01:4f8:190:314e:aacc:6f04:509:944e]:8000/
+.. _my github repository: https://github.com/hjacobs/srcco.de
 .. _Pequod Documentation: http://pequod.readthedocs.org/
