@@ -87,21 +87,13 @@ We can peek into the container using ``nsenter``:
     Instance Name              Repo Application Name Ver Zone      PID   IPv6                                 Started
     bootstrap--srcco-de-1-9641      srcco-de         1   bootstrap 14695 2a01:4f8:190:314e:aacc:6f04:509:944e 57m ago
 
-    $ nsenter --net -t 14695 /bin/ip a
-    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default
-        link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-        inet 127.0.0.1/8 scope host lo
-        valid_lft forever preferred_lft forever
-        inet6 ::1/128 scope host
-        valid_lft forever preferred_lft forever
+    $ nsenter --net -t 14695 /bin/ip a show scope global
     40: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
         link/ether 76:82:4b:8b:b1:a4 brd ff:ff:ff:ff:ff:ff
         inet6 2a01:4f8:190:314e:ff11:c3b3:509:944e/64 scope global
-        valid_lft forever preferred_lft forever
+           valid_lft forever preferred_lft forever
         inet6 2a01:4f8:190:314e:aacc:6f04:509:944e/64 scope global
-        valid_lft forever preferred_lft forever
-        inet6 fe80::7482:4bff:fe8b:b1a4/64 scope link
-        valid_lft forever preferred_lft forever
+           valid_lft forever preferred_lft forever
 
 As you can see from the ``ip a`` output, the Docker container has IPv6 connectivity only.
 If you have IPv6 connectivity on your local machine, you can `access the Docker container directly`_.
