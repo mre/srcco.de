@@ -1,0 +1,18 @@
+---
+external_services:
+    - service_name: github-https
+      service_version: '1'
+      external_host: github.com
+      external_port: 443
+      zone_name: bootstrap
+networks:
+    - ipv6_subnet_ip: '2a01:4f8:190:314e::'
+      ipv6_subnet_prefixlen: 64
+      location_name: 'srcco-de'
+      ipv6_gateway:
+      ipv6_dns:
+      ipv6_routes:
+          - destination_ip: 'fd99:69a4:fefb:64::'
+            destination_prefixlen: 96
+            gateway: '2a01:4f8:190:314e::1'
+
