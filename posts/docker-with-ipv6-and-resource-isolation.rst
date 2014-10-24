@@ -1,7 +1,7 @@
 .. link:
 .. description:
 .. tags: docker, pequod
-.. date: 2014/10/24 23:30:18
+.. date: 2014/10/24 21:30:18
 .. title: Docker with IPv6 and Resource Isolation
 .. slug: docker-with-ipv6-and-resource-isolation
 
