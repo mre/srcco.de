@@ -11,6 +11,7 @@ class Root(object):
 
 cherrypy.server.socket_port = 8000
 cherrypy.server.socket_host = '::'
+cherrypy.config.update({'environment': 'production'})
 config = {
     '/': {
         'tools.staticdir.on': True,
