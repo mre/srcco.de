@@ -1,7 +1,7 @@
 .. link:
 .. description:
 .. tags: docker, pequod
-.. date: 2014/10/24 14:30:18
+.. date: 2014/10/24 23:30:18
 .. title: Docker with IPv6 and Resource Isolation
 .. slug: docker-with-ipv6-and-resource-isolation
 
@@ -120,6 +120,12 @@ What did I get in the end?
 * The Pequod agent gives me better resource isolation than the default ``docker run``.
 * I finally configured my public /64 IPv6 subnet :-)
 
+What are the downsides?
+
+* Using CherryPy was only a "quick-and-dirty" choice to serve static HTML, the performance is by far not optimal.
+* Running the Pequod Cluster Agent without the Pequod core components provides reduced availability.
+  E.g. the Service Scheduler would restart instances in a regular Pequod cluster as soon as they die.
+* The setup is overly complex for this tiny static blog site.
 
 
 You can find some more information about Pequod in the `Pequod Documentation`_.
