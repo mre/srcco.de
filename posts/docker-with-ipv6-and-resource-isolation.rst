@@ -1,6 +1,6 @@
 .. link:
 .. description:
-.. tags: docker pequod
+.. tags: docker, pequod
 .. date: 2014/10/24 14:30:18
 .. title: Docker with IPv6 and Resource Isolation
 .. slug: docker-with-ipv6-and-resource-isolation
@@ -69,7 +69,57 @@ I created a small upstart init file to start the application with the Pequod Clu
     respawn
     exec pequod-agent --bootstrap srcco-de:1 /root/srcco.de/pequod-bootstrap.yaml
 
-If you have IPv6 connectivity, you can `access the Docker container directly`_.
+After starting (``service pequod-agent start``), the Docker container will automatically get connected to github.
+The agent's ``--inspect`` shows this:
+
+.. code-block:: bash
+
+    $ pequod-agent -i services
+    Instance Name              Repo Application Name Ver Type    Service      Ver Local Hostname                       Local Port
+    bootstrap--srcco-de-1-9641      srcco-de         1   provide srcco-de     1   2a01:4f8:190:314e:aacc:6f04:509:944e       8000
+    bootstrap--srcco-de-1-9641      srcco-de         1   require github-https 1   github.com                                  443
+
+We can peek into the container using ``nsenter``:
+
+.. code-block:: bash
+
+    $ pequod-agent -i
+    Instance Name              Repo Application Name Ver Zone      PID   IPv6                                 Started
+    bootstrap--srcco-de-1-9641      srcco-de         1   bootstrap 14695 2a01:4f8:190:314e:aacc:6f04:509:944e 57m ago
+
+    $ nsenter --net -t 14695 /bin/ip a
+    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default
+        link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+        inet 127.0.0.1/8 scope host lo
+        valid_lft forever preferred_lft forever
+        inet6 ::1/128 scope host
+        valid_lft forever preferred_lft forever
+    40: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+        link/ether 76:82:4b:8b:b1:a4 brd ff:ff:ff:ff:ff:ff
+        inet6 2a01:4f8:190:314e:ff11:c3b3:509:944e/64 scope global
+        valid_lft forever preferred_lft forever
+        inet6 2a01:4f8:190:314e:aacc:6f04:509:944e/64 scope global
+        valid_lft forever preferred_lft forever
+        inet6 fe80::7482:4bff:fe8b:b1a4/64 scope link
+        valid_lft forever preferred_lft forever
+
+As you can see from the ``ip a`` output, the Docker container has IPv6 connectivity only.
+If you have IPv6 connectivity on your local machine, you can `access the Docker container directly`_.
+
+Summary
+-------
+
+This little experiment worked out so far (it seems, at least you can apparently read this page ;-)).
+The setup is quite complex compared to my former setup with simple static HTML served by Apache.
+
+What did I get in the end?
+
+* This site is now automatically updated whenever I push to github.
+* I proved that it's feasible to run the Pequod Cluster Agent in a small "standalone" environment.
+* Packaging this site with Docker makes it easy to run it elsewhere.
+* The Pequod agent gives me better resource isolation than the default ``docker run``.
+* I finally configured my public /64 IPv6 subnet :-)
+
 
 
 You can find some more information about Pequod in the `Pequod Documentation`_.
