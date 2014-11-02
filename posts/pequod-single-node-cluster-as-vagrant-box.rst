@@ -50,7 +50,7 @@ The ``pequod status`` output should look like this if everything is started::
     Checking cluster-controller.. . OK
     Checking lbupdater.. . no endpoints 1/1 FAILED
 
-Now check whether the Cluster Agent was successfully started:
+Now check whether the `Cluster Agent`_ was successfully started:
 
 .. code-block:: bash
 
@@ -206,6 +206,7 @@ More information and links can be found on the `Pequod Website`_.
 .. _Pequod Documentation: http://pequod.readthedocs.org/
 .. _Pequod Application Registry: http://pequod.readthedocs.org/en/latest/components.html#application-registry
 .. _Cluster Controller: http://pequod.readthedocs.org/en/latest/components.html#cluster-controller
+.. _Cluster Agent: http://pequod.readthedocs.org/en/latest/components.html#cluster-agent
 .. _example application "greeting-backend": https://github.com/zalando/pequod-app-examples/tree/master/greeting-backend
 .. _service concept in Pequod: http://pequod.readthedocs.org/en/latest/services.html
 .. _application manifest: http://pequod.readthedocs.org/en/latest/manifest.html
