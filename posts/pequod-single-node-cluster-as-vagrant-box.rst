@@ -20,7 +20,7 @@ You also need a recent version of VirtualBox_ installed.
 Starting the Pequod Single-Node Cluster
 =======================================
 
-Perform the common steps to boot up the Vagrant box:
+Perform the common steps to boot up `the Vagrant box`_:
 
 .. code-block:: bash
 
@@ -63,14 +63,14 @@ Running the CLI without arguments prints the cluster state by default, which sho
 
     Instance Name Node Name Repo Application Name Ver Zone Status MB VMHz Procs Files Ipv6 Started
 
-The output tells us that one app node (the Vagrant box itself) was ``REGISTERED`` at the Cluster Controller
+The output tells us that one app node (the Vagrant box itself) was ``REGISTERED`` at the `Cluster Controller`_
 and that no application instances are running.
 This is what we would expect as no application was deployed yet.
 
 Application Deployment
 ======================
 
-Let's deploy our first example application "greeting-backend".
+Let's deploy our first `example application "greeting-backend"`_.
 
 To make this example easier, we just perform everything as ``root`` from now on:
 
@@ -88,14 +88,14 @@ First we checkout the code and build the Docker image:
     $ cd pequod-app-examples/greeting-backend
     $ docker build -t [fd7a:1234::1]:2195/example/greeting-backend:1 .
 
-The strange tag notation on the ``docker build`` line already contains Pequod's local registry address (IP ``fd7a:1234::1`` and port 2195).
-We need to upload ("push") the Docker image to the local Pequod Application Registry:
+The strange tag notation on the ``docker build`` line already contains Pequod's local Docker registry address (IP ``fd7a:1234::1`` and port 2195).
+We need to upload ("push") the Docker image to the local `Pequod Application Registry`_:
 
 .. code-block:: bash
 
     $ docker push [fd7a:1234::1]:2195/example/greeting-backend:1
 
-The Pequod Application Registry will automatically read the contained application manifest (``pequod.xml``).
+The Pequod Application Registry will automatically read the contained `application manifest`_ (``pequod.xml``).
 We can now check that the application is available in Pequod:
 
 .. code-block:: bash
@@ -124,7 +124,7 @@ If everything went well, the ``pequod`` cluster status should now look like this
     Instance Name                Node Name   Repo    Application Name Ver Zone      Status  MB  VMHz Procs Files Ipv6                         Started
     example-greeting-backend10da pequod-vbox example greeting-backend 1   vbox-test RUNNING 128 1000    10  4096 fd7a:1234::aacc:a710:a00:20f  6s ago
 
-We successfully started our first very simple example application!
+**We successfully started our first very simple example application!**
 
 Let's start some more, just for fun::
 
@@ -140,11 +140,58 @@ You will get an error trying to start more application instances than the app no
 In this example our Vagrant box provides 3190 "virtual MHz" CPU resources (calculated from ``/proc/cpuinfo``) and our example application requires 1000 VMHz
 --- i.e. we can start at most three "greeting-backend" instances.
 
-We can squeeze another instance into our Pequod cloud by reducing the required resource:
+We can squeeze another instance into our Pequod cloud by reducing the required CPU resource:
 
 .. code-block:: bash
 
-    $ pequod controller start example/greeting-backend:1 vbox-test --cpu-vmhz=100
+    $ pequod controller start --cpu-vmhz=100 example/greeting-backend:1 vbox-test
+
+Service Discovery
+=================
+
+As of now we ran only one self-contained application (greeting-backend REST service) without any service dependencies. To demonstrate the `service concept in Pequod`_,
+we will start another example application using our deployed greeting-backend REST service.
+
+Let's first make some room by shutting down some instances until we have only two left:
+
+.. code-block:: bash
+
+    $ pequod c stop example-greeting-backend10da # name varies!
+    $ pequod c stop ... # shut down more until two are left
+
+Now the cluster state should look similar to::
+
+    Node Name   Status     MB   VMHz Procs Files  Node Start Agent Start Templ.  Reboot Maintenance
+    pequod-vbox REGISTERED 1994 3190 32768 202744     3h ago      3h ago UNKNOWN     no          no
+
+    Instance Name                Node Name   Repo    Application Name Ver Zone      Status  MB  VMHz Procs Files Ipv6                         Started
+    example-greeting-backend4815 pequod-vbox example greeting-backend 1   vbox-test RUNNING 128  100    10  4096 fd7a:1234::aacc:2cc8:a00:20f  2h ago
+    example-greeting-backendd931 pequod-vbox example greeting-backend 1   vbox-test RUNNING 128 1000    10  4096 fd7a:1234::aacc:da88:a00:20f  2h ago
+
+Deploying the "greeting-frontend" example application works the same as before:
+
+.. code-block:: bash
+
+    $ cd /root/pequod-app-examples/greeting-frontend
+    $ docker build -t [fd7a:1234::1]:2195/example/greeting-frontend:1 .
+    $ docker push [fd7a:1234::1]:2195/example/greeting-frontend:1
+    $ pequod c start example/greeting-frontend:1 vbox-test
+
+The "greeting-frontend" application instance should be started after some seconds (check by running ``pequod``).
+Let's check that it works:
+
+.. code-block:: bash
+
+    $ IP=$(pequod | grep greeting-frontend | awk '{ print $12 }')
+    $ curl --globoff http://[$IP]:8080/ # use IP from "pequod" output
+
+What happened behind the scene?
+The agent automatically configured a new HAProxy pool with all running "greeting-backend" instances as members.
+Thus the "greeting-frontend" application can use the backend REST service without knowing the actual instance.
+This connection is declared via ``<provide>`` and ``<require>`` service entries in the respective application manifests (``pequod.xml``).
+
+That's All for Now
+==================
 
 Play around with the Pequod cluster and explore the CLI by using ``--help`` on commands and subcommands.
 
@@ -153,7 +200,13 @@ More information and links can be found on the `Pequod Website`_.
 .. _Vagrant download site: https://www.vagrantup.com/downloads.html
 .. _VirtualBox: https://www.virtualbox.org/
 .. _Pequod cloud solution: http://pequod.zone/
+.. _the Vagrant box: https://vagrantcloud.com/zalando/boxes/pequod-vbox
 .. _Pequod Website: http://pequod.zone/
-.. _Zalando Technology: http://tech.zalando.com/
 .. _Pequod Cluster Agent: https://pypi.python.org/pypi/pequod-agent
 .. _Pequod Documentation: http://pequod.readthedocs.org/
+.. _Pequod Application Registry: http://pequod.readthedocs.org/en/latest/components.html#application-registry
+.. _Cluster Controller: http://pequod.readthedocs.org/en/latest/components.html#cluster-controller
+.. _example application "greeting-backend": https://github.com/zalando/pequod-app-examples/tree/master/greeting-backend
+.. _service concept in Pequod: http://pequod.readthedocs.org/en/latest/services.html
+.. _application manifest: http://pequod.readthedocs.org/en/latest/manifest.html
+
