@@ -32,7 +32,7 @@ Cassandra and the Pequod core services need some time to start. Check the cluste
 
 .. code-block:: bash
 
-    $ pequod status
+    $ pequod st # = "status", any command can be abbreviated
 
 You can check the startup progress by watching the log files:
 
@@ -102,10 +102,58 @@ We can now check that the application is available in Pequod:
 
     $ pequod registry # lists all Pequod apps
 
+The output should include our freshly pushed example app::
+
+    Repo    Application Name Ver Command Has Manifest Last Update
+    hjacobs greeting-backend 1   /run.py          yes      3h ago
+    example greeting-backend 1   /run.py          yes     42s ago
+
+I pushed another version of "greeting-backend" to the "hjacobs" repository before, that's why the ``registry`` command lists two entries.
+
+Having the example application uploaded to our registry, we should now be able to start it:
+
+.. code-block:: bash
+
+    $ pequod controller start example/greeting-backend:1 vbox-test
+
+If everything went well, the ``pequod`` cluster status should now look like this::
+
+    Node Name   Status     MB   VMHz Procs Files  Node Start Agent Start Templ.  Reboot Maintenance
+    pequod-vbox REGISTERED 1994 3190 32768 202744    36m ago     34m ago UNKNOWN     no          no
+
+    Instance Name                Node Name   Repo    Application Name Ver Zone      Status  MB  VMHz Procs Files Ipv6                         Started
+    example-greeting-backend10da pequod-vbox example greeting-backend 1   vbox-test RUNNING 128 1000    10  4096 fd7a:1234::aacc:a710:a00:20f  6s ago
+
+We successfully started our first very simple example application!
+
+Let's start some more, just for fun::
+
+    Node Name   Status     MB   VMHz Procs Files  Node Start Agent Start Templ.  Reboot Maintenance
+    pequod-vbox REGISTERED 1994 3190 32768 202744    38m ago     36m ago UNKNOWN     no          no
+
+    Instance Name                Node Name   Repo    Application Name Ver Zone      Status  MB  VMHz Procs Files Ipv6                         Started
+    example-greeting-backend10da pequod-vbox example greeting-backend 1   vbox-test RUNNING 128 1000    10  4096 fd7a:1234::aacc:a710:a00:20f  2m ago
+    example-greeting-backend24ec pequod-vbox example greeting-backend 1   vbox-test RUNNING 128 1000    10  4096 fd7a:1234::aacc:963:a00:20f  16s ago
+    example-greeting-backendd931 pequod-vbox example greeting-backend 1   vbox-test RUNNING 128 1000    10  4096 fd7a:1234::aacc:da88:a00:20f 15s ago
+
+You will get an error trying to start more application instances than the app node can provide resources for (no overbooking).
+In this example our Vagrant box provides 3190 "virtual MHz" CPU resources (calculated from ``/proc/cpuinfo``) and our example application requires 1000 VMHz
+--- i.e. we can start at most three "greeting-backend" instances.
+
+We can squeeze another instance into our Pequod cloud by reducing the required resource:
+
+.. code-block:: bash
+
+    $ pequod controller start example/greeting-backend:1 vbox-test --cpu-vmhz=100
+
+Play around with the Pequod cluster and explore the CLI by using ``--help`` on commands and subcommands.
+
+More information and links can be found on the `Pequod Website`_.
 
 .. _Vagrant download site: https://www.vagrantup.com/downloads.html
 .. _VirtualBox: https://www.virtualbox.org/
 .. _Pequod cloud solution: http://pequod.zone/
+.. _Pequod Website: http://pequod.zone/
 .. _Zalando Technology: http://tech.zalando.com/
 .. _Pequod Cluster Agent: https://pypi.python.org/pypi/pequod-agent
 .. _Pequod Documentation: http://pequod.readthedocs.org/
