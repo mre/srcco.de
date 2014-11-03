@@ -14,7 +14,8 @@ I'll show you how to get a "complete" trial Pequod cluster up and running with V
 
 .. TEASER_END
 
-To run the single-node trial cluster, Vagrant needs to be installed first. Download the latest version for your OS from the `Vagrant download site`_.
+To run the single-node trial cluster, Vagrant needs to be installed first.
+Download the latest version for your OS from the `Vagrant download site`_ (make sure you run Vagrant version 1.6 or higher).
 You also need a recent version of VirtualBox_ installed.
 
 Starting the Pequod Single-Node Cluster
