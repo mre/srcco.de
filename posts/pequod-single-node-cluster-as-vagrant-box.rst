@@ -38,8 +38,8 @@ You can check the startup progress by watching the log files:
 
 .. code-block:: bash
 
-    $ tail /var/log/cassandra/system.log
-    $ tail /var/log/upstart/pequod-core-*.log
+    $ sudo tail -f /var/log/cassandra/system.log
+    $ sudo tail -f /var/log/upstart/pequod-core-*.log
 
 The ``pequod status`` output should look like this if everything is started::
 
