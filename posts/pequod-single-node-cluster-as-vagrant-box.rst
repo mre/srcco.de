@@ -29,6 +29,8 @@ Perform the common steps to boot up `the Vagrant box`_:
     $ vagrant up
     $ vagrant ssh
 
+**Note for Mac users**: If you have trouble with locales and the Vagrant box, you can fix it by doing ``export LC_ALL=en_US.UTF-8`` in your Mac terminal before running ``vagrant ssh``.
+
 Cassandra and the Pequod core services need some time to start. Check the cluster status with the Pequod CLI:
 
 .. code-block:: bash
