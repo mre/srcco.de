@@ -10,7 +10,7 @@ BLOG_AUTHOR = "Henning Jacobs"
 BLOG_TITLE = "SRCco.de"
 # This is the main URL for your site. It will be used
 # in a prominent link
-SITE_URL = "http://srcco.de/"
+SITE_URL = "https://srcco.de/"
 # This is the URL where nikola's output will be deployed.
 # If not set, defaults to SITE_URL
 # BASE_URL = "http://getnikola.com/"
