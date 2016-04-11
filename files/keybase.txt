@@ -1,0 +1,73 @@
+==================================================================
+https://keybase.io/hjacobs
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://srcco.de
+  * I am hjacobs (https://keybase.io/hjacobs) on keybase.
+  * I have a public key with fingerprint C61A 9A6B 3532 1EAA 6105  75F3 AD86 9A6F 43D8 0A3B
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0101078e034dac270dc7107f5812eac3144a4c7699785be83c4a617d04689db132b70a",
+            "fingerprint": "c61a9a6b35321eaa610575f3ad869a6f43d80a3b",
+            "host": "keybase.io",
+            "key_id": "ad869a6f43d80a3b",
+            "kid": "0101078e034dac270dc7107f5812eac3144a4c7699785be83c4a617d04689db132b70a",
+            "uid": "2e6d3f03137a99aeacfd0e5c4c358d19",
+            "username": "hjacobs"
+        },
+        "service": {
+            "hostname": "srcco.de",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1460377662,
+    "expire_in": 157680000,
+    "prev": "43c19e26e14781143e88d52b5a71a9906c03d782416a28be7e925ded2dc77be7",
+    "seqno": 15,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1
+
+owGtUmtQlFUYXkBKQZBhphIzlC9gSm7f/YKgk2CWDpNOpIyku9/l7O4HuIvfXmhb
+FySEBtqQxgChNA1DxDK6IBRCXCYuiuTAWqhJSmyUIF7GIYfG7HyM/etn5/w48z7z
+PM953veciiA/ja9PToLuwYZf37/tc+4PQbMt8OALTkQwSw4k0Ylkg/kD5EjAYtVm
+yxKSiKAY3AwLUIKUeBFnUElkIKCnWAwHvEhgJMmTIkNzHMNSAmAJkeRpjJFQkmY5
+ScAIXGBQHolF9LLJAJRcRTZZoa1IYzzH0wJBETgGeChBKYbSE7zE0hDXk4TEojwh
+QKHRbFEVMJzAW0C8bIYYLLTz8f6D/z/nts3b4YCWCD1KYATDcxwPHfQSCiiRFAmK
+lTBOJVqAYuJ3Acg2ZvGiWbAgrlgEgnZZBOpc1UYeESyKKJrjJQBluYrZahbNOarM
+as21JKoqqyNXpeUBQfvIQCvIJgmOECrsQLHIZhOSiEGmaJVVR4ykUYJhaBqPRcAb
+ubICtLLKoBiaReFS7wF2aEkSIsYBnAYYyaSzGEYSgGUlChconoFPwqG0iBISw+Ik
+RvM4KwAGcDglAQmHA2Rgiag97TaZVXMYlDeo7cgGE2+1KQBxBZT6Ll+g8fHVPObv
+q/4uTcCikH+/XHzokofbysPkTUkJJSUXJiJ6PZIYHJSzsWVF0cdLYpxzb36RFWNz
+htGzV49+GecyJk+t2k3XUB21K5vKGhbb17411hZ0OeUb98/JBvfbCa2PY6drSeHG
+YMb0sqdxdt9EtSZydf/MxGBr5ZMDf28ZWVq091LdLx1Tf1pTz3xybn/w+eqewBWF
+y674DW9CBvOaig8ebtO9HNGVf+yDAvezn89qFd+8qsKG9bbx7+5cPY7UrHknvS3P
+ozX3RhWmHE/1Xs6ob6gfwMI3F+ki8j8qPjbpeS/pYkhy2cKCNY5wT+KHc6V2dHzr
+iF8nm9V+fnv43dTfnq/o83ZOtQirrlWeTK6serXHVdq9YU+UMXqdMb/m9vDQ0sbn
+5jKR/aO2uNent+w6m+Z0d/UIExmzUaMxdU33uks6Ht65h8bfr+qslRa4Kg61dISm
+Jj2z79un6h2ZgWPcYc/9pGT9wqTyxsjZprgXd5alsPT1gHd1TxTG5nz6Uv9QHzLp
+xojiFI3jp+aGUGe0w2/M06W7cKj4s+jrIc2Nc3Zv/w9b9wz0FPu1D3dn+mxPm5Ru
+vGa4Us4u6tl5M/Rr4/T4Sv/IV0Zm9p7SFGTvOLN8Y9+tkvUHhpi0zbbfI6+F3Vy3
+2PvjkdWdrrodTLfh1sWQGaWVvKR871XazjY7Dxzx/8rhbF374NTd0ZMneqtPBJ/2
+1qfrRtuPcn/9Aw==
+=IcRZ
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/hjacobs
+
+==================================================================
