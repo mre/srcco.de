@@ -6,7 +6,8 @@ srcco.de
 
     $ docker build -t hjacobs/srcco.de .
     $ docker run -u $(id -u) -v $(pwd):/workdir -t hjacobs/srcco.de nikola build
-    $ xdg-open output/index.html
+    $ (cd output && python3 -m http.server)
+    $ xdg-open http://localhost:8000/
 
 
 
