@@ -4,12 +4,10 @@ srcco.de
 
 .. code-block:: bash
 
-    $ docker run -u $(id -u) -v $(pwd):/workdir -t hjacobs/nikola build
+    $ docker build -t hjacobs/srcco.de .
+    $ docker run -u $(id -u) -v $(pwd):/workdir -t hjacobs/srcco.de nikola build
+    $ (cd output && python3 -m http.server)
+    $ xdg-open http://localhost:8000/
 
 
 
-Install required tools:
-
-.. code-block:: bash
-
-    $ sudo apt-get install yui-compressor jpegoptim optipng
