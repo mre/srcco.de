@@ -5,9 +5,4 @@ srcco.de
 .. code-block:: bash
 
     $ docker build -t hjacobs/srcco.de .
-    $ docker run -u $(id -u) -v $(pwd):/workdir -t hjacobs/srcco.de nikola build
-    $ (cd output && python3 -m http.server)
-    $ xdg-open http://localhost:8000/
-
-
-
+    $ docker run -it -p 8000:8000 -u $(id -u) -v $(pwd):/workdir -t hjacobs/srcco.de nikola auto -a 0.0.0.0
