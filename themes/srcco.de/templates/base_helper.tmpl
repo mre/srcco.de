@@ -28,6 +28,13 @@
             <link rel="{{ name }}" href="{{ file }}" sizes="{{ size }}"/>
         {% endfor %}
     {% endif %}
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@try_except_">
+    <meta name="twitter:creator" content="@try_except_">
+    <meta name="twitter:title" content="{{ title|e }} - {{ blog_title|e }}">
+    <meta name="twitter:description" content="{{ description }}">
+
 {% endmacro %}
 
 {% macro late_load_js() %}
