@@ -72,5 +72,41 @@ I haven't digged deeper into the VPA and how it behaves over time, so that's it 
 
 **Do you want to learn more about Zalando's Kubernetes setup?** Take a peek at `our many public presentations (slides and videos) <https://kubernetes-on-aws.readthedocs.io/en/latest/admin-guide/public-presentations.html>`_!
 
+UPDATE 2019-01-10
+-----------------
+
+Right the day after writing this blog post, I have sad news! The VPA suddenly decided to lower the memory (good in theory, I complained about memory slack above!) and my pod was stuck in ``OOMKill`` restart loop.
+Sadly the only way to get out of this situation was to manually update the VPA CRD and set a minimum for memory (``minAllowed``):
+
+.. code-block:: yaml
+
+    apiVersion: autoscaling.k8s.io/v1beta1
+    kind: VerticalPodAutoscaler
+    metadata:
+      name: kube-resource-report
+      namespace: default
+    spec:
+      resourcePolicy:
+        containerPolicies:
+        - containerName: kube-resource-report
+          minAllowed:
+            memory: 2Gi
+          mode: Auto
+      selector:
+        matchLabels:
+          application: kube-resource-report
+      updatePolicy:
+        updateMode: Auto
+
+You can see the problem in the following chart (note the missing usage data for the time the pod was down because of ``OOMKill``):
+
+
+.. image:: ../galleries/kubernetes-vpa-oom.png
+   :width: 100%
+   :target: ../galleries/kubernetes-vpa-oom.png
+
+This is pretty disappointing news and I cannot recommend the Vertical Pod Autoscaler as long as I haven't figured out how to prevent this outage scenario.
+
+
 .. _Kubernetes Vertical Pod Autoscaler (VPA): https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler
 .. _Kubernetes Resource Report: https://github.com/hjacobs/kube-resource-report
