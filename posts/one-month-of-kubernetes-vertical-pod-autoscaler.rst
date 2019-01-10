@@ -4,6 +4,7 @@
 .. tags: kubernetes
 .. link:
 .. description: First observations of running the Kubernetes Vertical Pod Autoscaler (VPA) for a single pod application and how it adapts CPU/memory dynamically (for better or worse).
+.. previewimage: ../galleries/kubernetes-vpa-oom.png
 .. type: text
 
 .. image:: ../galleries/kubernetes-vpa-memory.thumbnail.png
