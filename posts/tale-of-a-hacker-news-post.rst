@@ -31,6 +31,8 @@ The number of GitHub stars went up to 1.5k and I received `two pull requests <ht
 
 The `German Linux Magazin wrote an online article "Geschichten über Kubernetes Fails" <http://www.linux-magazin.de/news/geschichten-ueber-kubernetes-fails/>`_ about the topic.
 
+Someone `posted a link to my blog post on Reddit <https://www.reddit.com/r/kubernetes/comments/ai03gk/kubernetes_failure_stories/>`_. It has 11 comments, so might be worth a look.
+
 Craig Box and Adam Glick invited me for an episode of the `Kubernetes Podcast by Google <https://kubernetespodcast.com/>`_. I don't know yet when the episode will be published.
 
 I hope to see more contributions for the `list of Kubernetes Failure Stories <https://github.com/hjacobs/kubernetes-failure-stories>`_ in the future.
