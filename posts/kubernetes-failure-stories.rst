@@ -76,3 +76,8 @@ Some recommended talks/reads for Kubernetes in production:
 * `Optimizing Kubernetes Resource Requests/Limits for Cost-Efficiency and Latency - Zalando - Highload++ 2018 <https://www.youtube.com/watch?v=eBChCFD9hfs>`_: why you should consider disabling CPU throttling (CFS quota) in your cluster(s)
 * `Kubernetes the very hard way at Datadog <https://www.youtube.com/watch?v=2dsCwp_j0yQ>`_: good insights of common (DNS issues, OOM) and less common (e.g. Datadog uses containerd and IPVS) challenges
 * `Inside Kubernetes Resource Management (QoS) – Mechanics and Lessons from the Field - Michael Gasch - KubeCon Europe 2018 <https://www.youtube.com/watch?v=8-apJyr2gi0>`_: fundamental information on how Kubernetes resources work
+
+UPDATE 2019-01-28
+-----------------
+
+I did a brief `write-up on what happend after posting this blog article on Hacker News </posts/tale-of-a-hacker-news-post.html>`_.
