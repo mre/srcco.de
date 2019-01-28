@@ -33,6 +33,8 @@ The `German Linux Magazin wrote an online article "Geschichten über Kubernetes 
 
 Someone `posted a link to my blog post on Reddit <https://www.reddit.com/r/kubernetes/comments/ai03gk/kubernetes_failure_stories/>`_. It has 11 comments, so might be worth a look.
 
+The blog post was `mentioned in KubeWeekly #160 <https://us10.campaign-archive.com/?u=3885586f8f1175194017967d6&id=7ebfd3c3f0>`_.
+
 Craig Box and Adam Glick invited me for an episode of the `Kubernetes Podcast by Google <https://kubernetespodcast.com/>`_. I don't know yet when the episode will be published.
 
 I hope to see more contributions for the `list of Kubernetes Failure Stories <https://github.com/hjacobs/kubernetes-failure-stories>`_ in the future.
