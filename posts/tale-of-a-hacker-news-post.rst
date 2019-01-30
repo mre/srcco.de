@@ -35,7 +35,8 @@ Someone `posted a link to my blog post on Reddit <https://www.reddit.com/r/kuber
 
 The blog post was `mentioned in KubeWeekly #160 <https://us10.campaign-archive.com/?u=3885586f8f1175194017967d6&id=7ebfd3c3f0>`_.
 
-Craig Box and Adam Glick invited me for an episode of the `Kubernetes Podcast by Google <https://kubernetespodcast.com/>`_. I don't know yet when the episode will be published.
+Craig Box and Adam Glick invited me for an episode of the `Kubernetes Podcast by Google <https://kubernetespodcast.com/>`_.
+**UPDATE 2019-01-30**: `episode #38 "Kubernetes Failure Stories" <https://kubernetespodcast.com/episode/038-kubernetes-failure-stories/>`_ is now published.
 
 I hope to see more contributions for the `list of Kubernetes Failure Stories <https://github.com/hjacobs/kubernetes-failure-stories>`_ in the future.
 That was the main reason for me to post the topic, so let me know `on Twitter <https://twitter.com/try_except_>`_ or `GitHub <https://github.com/hjacobs/kubernetes-failure-stories>`_ if you have a story to share!
