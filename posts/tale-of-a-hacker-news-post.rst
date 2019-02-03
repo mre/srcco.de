@@ -38,5 +38,7 @@ The blog post was `mentioned in KubeWeekly #160 <https://us10.campaign-archive.c
 Craig Box and Adam Glick invited me for an episode of the `Kubernetes Podcast by Google <https://kubernetespodcast.com/>`_.
 **UPDATE 2019-01-30**: `episode #38 "Kubernetes Failure Stories" <https://kubernetespodcast.com/episode/038-kubernetes-failure-stories/>`_ is now published.
 
+**UPDATE 2019-02-03**: The `O’Reilly Programming Newsletter <https://www.oreilly.com/programming/newsletter.html>`_ also prominently featured "Kubernetes Failure Stories" in its latest issue.
+
 I hope to see more contributions for the `list of Kubernetes Failure Stories <https://github.com/hjacobs/kubernetes-failure-stories>`_ in the future.
 That was the main reason for me to post the topic, so let me know `on Twitter <https://twitter.com/try_except_>`_ or `GitHub <https://github.com/hjacobs/kubernetes-failure-stories>`_ if you have a story to share!
