@@ -31,7 +31,7 @@ OK, let's imagine you want to run a bunch of containers [#]_, what are your opti
 
 I only listed options I personally looked into. All of them "work", but differ heavily in what interface they provide: Mesos can provide container orchestration, but does not provide a consistent API (compare `Marathon <https://mesosphere.github.io/marathon/api-console/index.html>`_ and `Chronos <https://mesos.github.io/chronos/docs/api.html>`_)
 and I haven't met anyone recently who uses it [#]_. AWS ECS, Beanstalk and Fargate are options to run containerized workloads, but like all proprietary AWS products, they demand a certain commitment to AWS' way of doing things.
-This means having a non-extensible AWS API with rate limiting [#]_, and relying on AWS Lambda as "glue". AWS ECS is used by many organizations and has proofen to be a reliable option,
+This means having a non-extensible AWS API with rate limiting [#]_, and relying on AWS Lambda as "glue". AWS ECS is used by many organizations and has proven to be a reliable option,
 but it only provides a limited set of features and a non-extensible API. `Blox <https://blox.github.io/>`_ tried to address some of the shortcomings, but it seems to have stalled (`last commit >1 year ago <https://github.com/blox/blox/commits/dev>`_).
 Nomad seems to be a great project with focus on simplicity and good integration with the HashiCorp landscape, but it comes with a much more narrow, non-extensible HTTP API.
 
@@ -48,7 +48,7 @@ I can create Open Source tools like kube-ops-view_, kube-downscaler_, and kube-j
 There is no incentive for me personally to invest my time in something proprietary like AWS ECS which I don't use at home and which has limited market share.
 I think this network effect will prevail and we will see more and more high-level tools (apps, operators, ..) for Kubernetes.
 
-Why does it matter that the Kubernetes API is extensible? Having an extensible API matters a lot as you will sooner or later hit an use case not reflected 100% by your infrastucture API,
+Why does it matter that the Kubernetes API is extensible? Having an extensible API matters a lot as you will sooner or later hit an use case not reflected 100% by your infrastructure API,
 and/or you need to integrate with your existing organization's landscape. Kubernetes allows you to extend its API with custom resources (CRDs), e.g. Zalando uses this to `integrate its existing OAuth infrastructure for service-to-service authentication <https://kubernetes-on-aws.readthedocs.io/en/latest/user-guide/zalando-iam.html>`_.
 Custom resources also allow building higher-level abstractions on top of core concepts, e.g. the `Kubernetes StackSet Controller <https://github.com/zalando-incubator/stackset-controller>`_  adds a new (opinionated) StackSet resource to the API for managing application life cycle and traffic switching.
 More common use cases for custom resources are the plentiful `Kubernetes Operators`_. These operators define new CRDs for workloads like `PostgreSQL <https://github.com/zalando/postgres-operator>`_, `etcd <https://github.com/coreos/etcd-operator>`_, `Prometheus <https://github.com/coreos/prometheus-operator>`_, etc.
@@ -81,6 +81,9 @@ Matthias Endler wrote in `his blog post <https://matthias-endler.de/2019/maybe-y
 I can certainly agree with that statement, but from my anecdotal experience, people starting with container orchestration often discount the value of the "standard" Kubernetes API (it's just not part of their requirements list)
 --- they are surprised when I tell them that **the de-facto standard, extensible API is my main argument for Kubernetes**.
 I got to know companies switching from AWS ECS to EKS exactly for this reason: they had to solve problems specifically for ECS where for Kubernetes they could use existing Open Source tooling created for the Kubernetes API.
+While you should not just jump on Kubernetes "because everybody does it", its long list of users (organizations) is certainly an advantage, *especially* for learning about production operations.
+I `started collecting Kubernetes Failure Stories <https://srcco.de/posts/kubernetes-failure-stories.html>`_ for no other reason than to leverage the enormous community and improve infrastructure operations (true for managed and self-hosted).
+I have yet to see a similarly extensive list for other container orchestration systems --- and believe me: not finding failure stories does not mean there are none ;-)
 
 You will have to invest in your infrastructure either way, even for managed platforms like ECS you will need to learn specific concepts, abstractions, and pitfalls.
 I believe that Kubernetes allows you to better utilize the acquired knowledge across cloud providers, environments, and even employers.
