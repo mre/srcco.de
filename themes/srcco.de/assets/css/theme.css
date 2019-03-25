@@ -224,6 +224,26 @@ pre {
     overflow-x: auto;
 }
 
+table.footnote {
+	margin-top: 20px;
+    border: 0;
+}
+
+.footnote td {
+    padding: 0.5rem 0.5rem 0.5rem 0;
+}
+
+.footnote td.label {
+    border-top: 1px solid #8c837a;
+}
+
+table.footnote + table.footnote {
+    margin-top: 0;
+}
+table.footnote + table.footnote td.label {
+    border-top: none;
+}
+
 @media (max-width: 480px) {
     #cont {
         width: 408px;
