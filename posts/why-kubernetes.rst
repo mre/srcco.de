@@ -16,6 +16,7 @@ I'll try to explain why I believe Kubernetes is worth a close look, even if you 
 .. TEASER_END
 
 DISCLAIMER: No surprise: I'm biased. `We run 100+ Kubernetes clusters at Zalando <https://www.youtube.com/watch?v=4QyecOoPsGU>`_ and I'm heavily invested in the Kubernetes topic (as you can see from `my github repos <https://github.com/hjacobs>`_).
+Nobody needs to hear my opinion, so here it is ;-)
 
 OK, let's imagine you want to run a bunch of containers [#]_, what are your options (sorted alphabetically)?
 
@@ -38,9 +39,9 @@ Looking at these options, the Kubernetes API is the unique selling point for me.
 
 * provides enough **abstractions** to cover most application use cases: rolling deployments, service endpoints, ingress routing, stateful workloads, cron/batch jobs
 * provides **consistency** (general structure, OpenAPI schema, version, metadata labels/annotations, spec, status fields)
-* is **extensible** via Custom Resource Definitions (CRDs) and API server aggregation
-* provides a certain **compatibility** guarantee (versioning)
-* is widely **adopted** (all cloud providers have a managed Kubernetes offering) and a huge ecosystem builds on top of it
+* is **extensible** via custom annotations, `Custom Resource Definitions`_ (CRDs), and API server aggregation
+* provides a certain **compatibility** guarantee (`versioning <https://kubernetes.io/docs/concepts/overview/kubernetes-api/#api-versioning>`_)
+* is widely **adopted** (all cloud providers have a managed Kubernetes offering) and has a huge ecosystem build on top of it
 * works across environments and implementations: as a naive user of the Kubernetes API I actually don't have to care about how the nodes are implemented (or whether they are "virtual")
 
 I can create Open Source tools like kube-ops-view_, kube-downscaler_, and kube-janitor_, knowing that they will work on any standard Kubernetes API, regardless of managed or self-hosted.
@@ -50,19 +51,19 @@ I think this network effect will prevail and we will see more and more high-leve
 Why does it matter that the Kubernetes API is extensible? Having an extensible API matters a lot as you will sooner or later hit an use case not reflected 100% by your infrastucture API,
 and/or you need to integrate with your existing organization's landscape. Kubernetes allows you to extend its API with custom resources (CRDs), e.g. Zalando uses this to `integrate its existing OAuth infrastructure for service-to-service authentication <https://kubernetes-on-aws.readthedocs.io/en/latest/user-guide/zalando-iam.html>`_.
 Custom resources also allow building higher-level abstractions on top of core concepts, e.g. the `Kubernetes StackSet Controller <https://github.com/zalando-incubator/stackset-controller>`_  adds a new (opinionated) StackSet resource to the API for managing application life cycle and traffic switching.
-More common use cases for custom resources are the plentiful `Kubernetes Operators`_. These operators definine new CRDs for workloads like `PostgreSQL <https://github.com/zalando/postgres-operator>`_, Redis, etcd, Prometheus, etc.
+More common use cases for custom resources are the plentiful `Kubernetes Operators`_. These operators define new CRDs for workloads like `PostgreSQL <https://github.com/zalando/postgres-operator>`_, `etcd <https://github.com/coreos/etcd-operator>`_, `Prometheus <https://github.com/coreos/prometheus-operator>`_, etc.
 
-I'm probably not the first to write this, but I often compare the Kubernetes API with the Linux Kernel: the "world" converged towards the Linux Kernel API (when we talk about containers, 99% of the time the Linux Kernel features like cgroups/namespaces are involved),
+I'm probably not the first to write this, but I often compare the Kubernetes API with the Linux Kernel: the "world" converged towards the Linux Kernel API (when we talk about "containers", >99% of the time it refers to Linux Kernel features like cgroups/namespaces),
 now we see a similar trend for the Kubernetes API. Or maybe it's not the Kernel, but systemd?
 
 .. image:: ../galleries/twitter-kubernetes-is-systemd.png
-   :class: center
+   :class: center-fullsize
    :target: https://twitter.com/kelseyhightower/status/1088828102480781313
 
 Kubernetes certainly is complex, but setting up Kubernetes does not have to be complex or expensive: creating a cluster on DigitalOcean_ takes less than 4 minutes and is reasonably cheap ($30/month for 3 small nodes with 2 GiB and 1 CPU each).
 Running Kubernetes on your Raspberry PI also got easier with `K3s <https://k3s.io/>`_.
 
-The Kubernetes API is valuable regardless of the implementation: the virtual kubelet allows you to run workloads without caring about nodes.
+The Kubernetes API is valuable regardless of the implementation: the `Virtual Kubelet`_ allows you to run workloads without caring about nodes.
 Microsoft already `provides this feature (AKS Virtual Nodes) in their Azure cloud <https://www.youtube.com/watch?v=hXUywTkwmtk>`_. You can even `experiment with virtual-kubelet and AWS Fargate <https://aws.amazon.com/blogs/opensource/aws-fargate-virtual-kubelet/>`_.
 
 There are now plenty of options to run the Kubernetes API locally for development or testing:
@@ -81,10 +82,16 @@ I can certainly agree with that statement, but from my anecdotal experience, peo
 --- they are surprised when I tell them that **the de-facto standard, extensible API is my main argument for Kubernetes**.
 I got to know companies switching from AWS ECS to EKS exactly for this reason: they had to solve problems specifically for ECS where for Kubernetes they could use existing Open Source tooling created for the Kubernetes API.
 
-You will have to invest in your infrastructure either way, even for managed platforms like ECS you will need to learn their concepts, abstractions, and pitfalls.
+You will have to invest in your infrastructure either way, even for managed platforms like ECS you will need to learn specific concepts, abstractions, and pitfalls.
 I believe that Kubernetes allows you to better utilize the acquired knowledge across cloud providers, environments, and even employers.
 
 I think you should not underestimate Kubernetes' complexity, but you should also not discount the value of the Kubernetes API and its ecosystem.
+
+And don't forget that nobody will care about Kubernetes in five years --- because it becomes ubiquitous ;-)
+
+.. image:: ../galleries/twitter-kubernetes-five-years.png
+   :class: center-fullsize
+   :target: https://twitter.com/fuzzychef/status/1093571634265436160
 
 This is the Internet. It's full of opinions. Make your own decision and know the trade-offs.
 
@@ -101,3 +108,5 @@ This is the Internet. It's full of opinions. Make your own decision and know the
 .. _k3s: https://k3s.io/
 .. _Kubernetes Operators: https://coreos.com/operators/
 .. _DigitalOcean: https://www.digitalocean.com/products/kubernetes/
+.. _Custom Resource Definitions: https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions
+.. _Virtual Kubelet: https://virtual-kubelet.io/

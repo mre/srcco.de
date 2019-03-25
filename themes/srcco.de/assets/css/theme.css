@@ -200,6 +200,10 @@ img.center {
     max-height: 300px;
     max-width: 300px;
 }
+img.center-fullsize {
+    display: block;
+    margin: 16px auto;
+}
 .clear {
     clear: both;
 }
