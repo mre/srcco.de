@@ -15,10 +15,22 @@ I'll try to explain why I believe Kubernetes is worth a close look, even if you 
 
 .. TEASER_END
 
-DISCLAIMER: No surprise: I'm biased. `We run 100+ Kubernetes clusters at Zalando <https://www.youtube.com/watch?v=4QyecOoPsGU>`_ and I'm heavily invested in the Kubernetes topic (as you can see from `my github repos <https://github.com/hjacobs>`_).
+**DISCLAIMER**: No surprise: I'm biased. `We run 100+ Kubernetes clusters at Zalando <https://www.youtube.com/watch?v=4QyecOoPsGU>`_ and I'm heavily invested in the Kubernetes topic (as you can see from `my github repos <https://github.com/hjacobs>`_).
 Nobody needs to hear my opinion, so here it is ;-)
 
-OK, let's imagine you want to run a bunch of containers [#]_, what are your options (sorted alphabetically)?
+Matthias Endler `writes <https://matthias-endler.de/2019/maybe-you-dont-need-kubernetes/>`_:
+
+    "Kubernetes is the 800-pound gorilla of container orchestration.
+    It powers some of the biggest deployments worldwide, but it comes with a price tag.
+
+    Especially for smaller teams, it can be time-consuming to maintain and has a steep learning curve."
+
+I argue that Kubernetes' cohesive and extensible API matters and that learning it is worthwhile, even if you just want to run a bunch of containers [#]_.
+
+Running Containers
+------------------
+
+OK, let's imagine you want to run a bunch of containers, what are your options (sorted alphabetically)?
 
 * `Apache Mesos <http://mesos.apache.org/>`_
 * `AWS ECS <https://aws.amazon.com/ecs/>`_
@@ -35,7 +47,10 @@ This means having a non-extensible AWS API with rate limiting [#]_, and relying 
 but it only provides a limited set of features and a non-extensible API. `Blox <https://blox.github.io/>`_ tried to address some of the shortcomings, but it seems to have stalled (`last commit >1 year ago <https://github.com/blox/blox/commits/dev>`_).
 Nomad seems to be a great project with focus on simplicity and good integration with the HashiCorp landscape, but it comes with a much more narrow, non-extensible HTTP API.
 
-Looking at these options, the Kubernetes API is the unique selling point for me. It:
+Kubernetes API
+--------------
+
+Looking at above options, the Kubernetes API is the unique selling point for me. It:
 
 * provides enough **abstractions** to cover most application use cases: rolling deployments, service endpoints, ingress routing, stateful workloads, cron/batch jobs
 * provides **consistency** (general structure, OpenAPI schema, version, metadata labels/annotations, spec, status fields)
@@ -51,7 +66,8 @@ I think this network effect will prevail and we will see more and more high-leve
 Why does it matter that the Kubernetes API is extensible? Having an extensible API matters as you will sooner or later hit an use case not reflected 100% by your infrastructure API,
 and/or you need to integrate with your existing organization's landscape. Kubernetes allows you to extend its API with custom resources (CRDs), e.g. Zalando uses this to `integrate its existing OAuth infrastructure for service-to-service authentication <https://kubernetes-on-aws.readthedocs.io/en/latest/user-guide/zalando-iam.html>`_.
 Custom resources also allow building higher-level abstractions on top of core concepts, e.g. the `Kubernetes StackSet Controller <https://github.com/zalando-incubator/stackset-controller>`_  adds a new (opinionated) StackSet resource to the API for managing application life cycle and traffic switching.
-More common use cases for custom resources are the plentiful `Kubernetes Operators`_. These operators define new CRDs for workloads like `PostgreSQL <https://github.com/zalando/postgres-operator>`_, `etcd <https://github.com/coreos/etcd-operator>`_, `Prometheus <https://github.com/coreos/prometheus-operator>`_, etc.
+More common use cases for custom resources are the plentiful `Kubernetes Operators`_. These operators define new CRDs for workloads like `PostgreSQL <https://github.com/zalando/postgres-operator>`_, `etcd <https://github.com/coreos/etcd-operator>`_,
+`Prometheus <https://github.com/coreos/prometheus-operator>`_, or Elasticsearch [#]_.
 
 I'm probably not the first to write this, but I often compare the Kubernetes API with the Linux Kernel: the "world" converged towards the Linux Kernel API (when we talk about "containers", >99% of the time it refers to Linux Kernel features like cgroups/namespaces),
 now we see a similar trend for the Kubernetes API. Or maybe it's not the Kernel, but systemd?
@@ -60,7 +76,11 @@ now we see a similar trend for the Kubernetes API. Or maybe it's not the Kernel,
    :class: center-fullsize
    :target: https://twitter.com/kelseyhightower/status/1088828102480781313
 
+Running Kubernetes
+------------------
+
 Kubernetes certainly is complex, but setting up Kubernetes does not have to be complex or expensive: creating a cluster on DigitalOcean_ takes less than 4 minutes and is reasonably cheap ($30/month for 3 small nodes with 2 GiB and 1 CPU each).
+All major cloud providers have managed Kubernetes offerings, sadly `some make it unnecessarily hard to get started <https://github.com/aws/containers-roadmap/issues/44>`_.
 Running Kubernetes on your Raspberry PI also got easier with `K3s <https://k3s.io/>`_.
 
 The Kubernetes API is valuable regardless of the implementation: the `Virtual Kubelet`_ allows you to run workloads without caring about nodes.
@@ -85,6 +105,9 @@ While you should not just jump on Kubernetes "because everybody does it", its lo
 I `started collecting Kubernetes Failure Stories <https://srcco.de/posts/kubernetes-failure-stories.html>`_ for no other reason than to leverage the enormous community and improve infrastructure operations (true for managed and self-hosted).
 I have yet to see a similarly extensive list for other container orchestration systems --- and believe me: not finding failure stories does not mean there are none ;-)
 
+Summary
+-------
+
 You will have to invest in your infrastructure either way, even for managed platforms like ECS you will need to learn specific concepts, abstractions, and pitfalls.
 I believe that Kubernetes allows you to better utilize the acquired knowledge across cloud providers, environments, and even employers.
 
@@ -101,6 +124,8 @@ This is the Internet. It's full of opinions. Make your own decision and know the
 .. [#] I simplify here, probably you want to run some apps/microservices and containers are just a means to an end. I also try to avoid the serverless vs. container-as-a-service discussion in this post.
 .. [#] This is based on my biased sample from "devops" conferences. I know that there are large Mesos deployments out there.
 .. [#] Rate limiting for the AWS API can be a major PITA as it can lead to locking yourself out of your AWS account ("DoSing yourself") and sometimes requires additional effort, e.g. by syncing state elsewhere when a high number of (read-only) API calls are required.
+.. [#] There is `upmc-enterprises/elasticsearch-operator <https://github.com/upmc-enterprises/elasticsearch-operator>`_ and Zalando `plans to release a custom Elasticsearch operator <https://twitter.com/otrosien/status/1110587374805966849>`_ with autoscaling support.
+
 
 
 .. _kube-ops-view: https://github.com/hjacobs/kube-ops-view
