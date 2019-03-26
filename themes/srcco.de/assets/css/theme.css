@@ -1,22 +1,22 @@
 body
 {
-	margin: 0;
-	color: #8c837a;
-	background: #494949;
-	text-align: center;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 14px;
+    margin: 0;
+    color: #8c837a;
+    background: #494949;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
     line-height: 1.2;
 }
 a
 {
-	color: #417ebe;
-	text-decoration: none;
+    color: #417ebe;
+    text-decoration: none;
 }
 a:hover
 {
-	color: #a7794f;
-	text-decoration: underline;
+    color: #a7794f;
+    text-decoration: underline;
 }
 hr {
     border-top: 1px solid #8c837a;
@@ -26,20 +26,20 @@ hr {
 }
 img
 {
-	border: none;
+    border: none;
     opacity: 0.9;
 }
 p
 {
-	margin: 10px 0;
+    margin: 10px 0;
 }
 h1
 {
-	font-size: 17px;
-	font-weight: bold;
-	color: #505050;
-	margin: 0 0 16px 0;
-	text-transform: uppercase;
+    font-size: 17px;
+    font-weight: bold;
+    color: #505050;
+    margin: 0 0 16px 0;
+    text-transform: uppercase;
 }
 .teaser h1 {
     padding-right: 160px;
@@ -48,73 +48,73 @@ h1
 .teaser h1 time {
     position: absolute;
     text-align: right;
-	color: #8c837a;
+    color: #8c837a;
     top: 1px;
     right: 0px;
     font-size: 14px;
 }
 h2
 {
-	font-size: 16px;
-	font-weight: bold;
-	color: #6d6964;
-	margin: 16px 0 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #6d6964;
+    margin: 16px 0 10px 0;
 }
 h3
 {
-	font-size: 14px;
-	font-weight: bold;
-	color: #8c837a;
-	margin: 10px 0 6px 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: #8c837a;
+    margin: 10px 0 6px 0;
 }
 ul
 {
-	margin: 10px 0 10px 20px;
-	padding: 0;
+    margin: 10px 0 10px 20px;
+    padding: 0;
 }
 li
 {
-	background: transparent url(../img/bullet.png) no-repeat 2px 4px;
-	padding: 0 0 0 24px;
-	margin: 6px 0px;
-	list-style: none;
+    background: transparent url(../img/bullet.png) no-repeat 2px 4px;
+    padding: 0 0 0 24px;
+    margin: 6px 0px;
+    list-style: none;
 }
 #wrp
 {
-	margin: 0;
-	background: #5c5c5c url(../img/wrp.png) repeat top left;
+    margin: 0;
+    background: #5c5c5c url(../img/wrp.png) repeat top left;
 }
 #cont
 {
-	width: 815px;
-	text-align: left;
-	margin: 0 auto;
-	background: transparent url(../img/cont.png) repeat-y top left;
+    width: 815px;
+    text-align: left;
+    margin: 0 auto;
+    background: transparent url(../img/cont.png) repeat-y top left;
 }
 #page
 {
-	position: relative;
-	width: 775px;
-	margin: 0px 20px;
-	background: #fbf7f1 url(../img/page.png) repeat-y top left;
+    position: relative;
+    width: 775px;
+    margin: 0px 20px;
+    background: #fbf7f1 url(../img/page.png) repeat-y top left;
 }
 header
 {
-	height: 248px;
-	background: transparent url(../img/header.jpg) no-repeat top left;
+    height: 248px;
+    background: transparent url(../img/header.jpg) no-repeat top left;
 }
 header h1
 {
-	display: none;
+    display: none;
 }
 nav
 {
     font-size: 20px;
-	border-right: 1px solid #d3c8c4;
-	float: left;
-	width: 50px;
-	margin-left: 18px;
-	display: inline; /* FIX IE double margin bug */
+    border-right: 1px solid #d3c8c4;
+    float: left;
+    width: 50px;
+    margin-left: 18px;
+    display: inline; /* FIX IE double margin bug */
     opacity: 0.8;
 }
 nav:hover {
@@ -122,15 +122,15 @@ nav:hover {
 }
 nav ul
 {
-	margin: 0;
-	padding: 10px 0 0 0;
+    margin: 0;
+    padding: 10px 0 0 0;
 }
 nav li
 {
-	padding: 0;
-	list-style: none;
+    padding: 0;
+    list-style: none;
     background: transparent;
-	margin: 0 0 10px 0;
+    margin: 0 0 10px 0;
 }
 nav li a {
     display: block;
@@ -138,33 +138,33 @@ nav li a {
 }
 #content
 {
-	margin-left: 130px;
-	width: 610px;
+    margin-left: 130px;
+    width: 610px;
 }
 #ftr
 {
-	position: relative;
-	clear: both;
-	font-size: 11px;
-	height: 47px;
-	background: transparent url(../img/ftr.jpg) no-repeat top left;
+    position: relative;
+    clear: both;
+    font-size: 11px;
+    height: 47px;
+    background: transparent url(../img/ftr.jpg) no-repeat top left;
 }
 
 footer
 {
-	background: transparent url(../img/footer.png) repeat-x top left;
-	padding: 20px;
-	text-align: left;
+    background: transparent url(../img/footer.png) repeat-x top left;
+    padding: 20px;
+    text-align: left;
 }
 footer small
 {
-	font-size: 10px;
-	color: #606060;
+    font-size: 10px;
+    color: #606060;
 }
 footer small a
 {
-	color: #606060;
-	text-decoration: none;
+    color: #606060;
+    text-decoration: none;
 }
 
 ul.pager {
@@ -200,6 +200,10 @@ img.center {
     max-height: 300px;
     max-width: 300px;
 }
+img.center-fullsize {
+    display: block;
+    margin: 16px auto;
+}
 .clear {
     clear: both;
 }
@@ -222,6 +226,26 @@ ul.breadcrumb li {
 }
 pre {
     overflow-x: auto;
+}
+
+table.footnote {
+    margin-top: 20px;
+    border: 0;
+}
+
+.footnote td {
+    padding: 0.5rem 0.5rem 0.5rem 0;
+}
+
+.footnote td.label {
+    border-top: 1px solid #8c837a;
+}
+
+table.footnote + table.footnote {
+    margin-top: 0;
+}
+table.footnote + table.footnote td.label {
+    border-top: none;
 }
 
 @media (max-width: 480px) {
