@@ -25,7 +25,7 @@ OK, let's imagine you want to run a bunch of containers [#]_, what are your opti
 * `AWS Elastic Beanstalk <https://aws.amazon.com/elasticbeanstalk/>`_ (OK, let's just `not talk about it <https://twitter.com/QuinnyPig/status/1070848346992963584>`_)
 * `AWS Fargate <https://aws.amazon.com/fargate/>`_ ("serverless containers")
 * ``docker run`` (yes, a very viable option!)
-* `HasiCorp Nomad <https://www.nomadproject.io/>`_
+* `HashiCorp Nomad <https://www.nomadproject.io/>`_
 * `Kubernetes <https://kubernetes.io/>`_ (managed or self-hosted)
 * (add your favorite option here)
 
