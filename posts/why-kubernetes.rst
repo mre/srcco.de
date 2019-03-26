@@ -22,9 +22,9 @@ OK, let's imagine you want to run a bunch of containers [#]_, what are your opti
 
 * `Apache Mesos <http://mesos.apache.org/>`_
 * `AWS ECS <https://aws.amazon.com/ecs/>`_
-* `AWS Elastic Beanstalk <https://aws.amazon.com/elasticbeanstalk/>`_
-* `AWS Fargate <https://aws.amazon.com/fargate/>`_
-* ``docker run``
+* `AWS Elastic Beanstalk <https://aws.amazon.com/elasticbeanstalk/>`_ (OK, let's just `not talk about it <https://twitter.com/QuinnyPig/status/1070848346992963584>`_)
+* `AWS Fargate <https://aws.amazon.com/fargate/>`_ ("serverless containers")
+* ``docker run`` (yes, a very viable option!)
 * `HasiCorp Nomad <https://www.nomadproject.io/>`_
 * `Kubernetes <https://kubernetes.io/>`_ (managed or self-hosted)
 * (add your favorite option here)
@@ -41,14 +41,14 @@ Looking at these options, the Kubernetes API is the unique selling point for me.
 * provides **consistency** (general structure, OpenAPI schema, version, metadata labels/annotations, spec, status fields)
 * is **extensible** via custom annotations, `Custom Resource Definitions`_ (CRDs), and API server aggregation
 * provides a certain **compatibility** guarantee (`versioning <https://kubernetes.io/docs/concepts/overview/kubernetes-api/#api-versioning>`_)
-* is widely **adopted** (all cloud providers have a managed Kubernetes offering) and has a huge ecosystem build on top of it
+* is widely **adopted** (all major cloud providers have `hosted solutions <https://kubernetes.io/docs/setup/pick-right-solution/#hosted-solutions>`_) and has a huge ecosystem build on top of it
 * works across environments and implementations: as a naive user of the Kubernetes API I actually don't have to care about how the nodes are implemented (or whether they are "virtual")
 
 I can create Open Source tools like kube-ops-view_, kube-downscaler_, and kube-janitor_, knowing that they will work on any standard Kubernetes API, regardless of managed or self-hosted.
 There is no incentive for me personally to invest my time in something proprietary like AWS ECS which I don't use at home and which has limited market share.
 I think this network effect will prevail and we will see more and more high-level tools (apps, operators, ..) for Kubernetes.
 
-Why does it matter that the Kubernetes API is extensible? Having an extensible API matters a lot as you will sooner or later hit an use case not reflected 100% by your infrastructure API,
+Why does it matter that the Kubernetes API is extensible? Having an extensible API matters as you will sooner or later hit an use case not reflected 100% by your infrastructure API,
 and/or you need to integrate with your existing organization's landscape. Kubernetes allows you to extend its API with custom resources (CRDs), e.g. Zalando uses this to `integrate its existing OAuth infrastructure for service-to-service authentication <https://kubernetes-on-aws.readthedocs.io/en/latest/user-guide/zalando-iam.html>`_.
 Custom resources also allow building higher-level abstractions on top of core concepts, e.g. the `Kubernetes StackSet Controller <https://github.com/zalando-incubator/stackset-controller>`_  adds a new (opinionated) StackSet resource to the API for managing application life cycle and traffic switching.
 More common use cases for custom resources are the plentiful `Kubernetes Operators`_. These operators define new CRDs for workloads like `PostgreSQL <https://github.com/zalando/postgres-operator>`_, `etcd <https://github.com/coreos/etcd-operator>`_, `Prometheus <https://github.com/coreos/prometheus-operator>`_, etc.
