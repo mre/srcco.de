@@ -63,7 +63,7 @@ I can create Open Source tools like kube-ops-view_, kube-downscaler_, and kube-j
 There is no incentive for me personally to invest my time in something proprietary like AWS ECS which I don't use at home and which has limited market share.
 I think this network effect will prevail and we will see more and more high-level tools (apps, operators, ..) for Kubernetes.
 
-Why does it matter that the Kubernetes API is extensible? Having an extensible API matters as you will sooner or later hit an use case not reflected 100% by your infrastructure API,
+Why does it matter that the Kubernetes API is extensible? Having an extensible API matters as you will sooner or later hit a use case not reflected 100% by your infrastructure API,
 and/or you need to integrate with your existing organization's landscape. Kubernetes allows you to extend its API with custom resources (CRDs), e.g. Zalando uses this to `integrate its existing OAuth infrastructure for service-to-service authentication <https://kubernetes-on-aws.readthedocs.io/en/latest/user-guide/zalando-iam.html>`_.
 Custom resources also allow building higher-level abstractions on top of core concepts, e.g. the `Kubernetes StackSet Controller <https://github.com/zalando-incubator/stackset-controller>`_  adds a new (opinionated) StackSet resource to the API for managing application life cycle and traffic switching.
 More common use cases for custom resources are the plentiful `Kubernetes Operators`_. These operators define new CRDs for workloads like `PostgreSQL <https://github.com/zalando/postgres-operator>`_, `etcd <https://github.com/coreos/etcd-operator>`_,
