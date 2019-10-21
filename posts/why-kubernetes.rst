@@ -10,7 +10,7 @@
 .. image:: ../galleries/kubernetes-logo.png
    :class: left
 
-There was a recent blog post by Matthias Endler on `why you might not need Kubernetes <https://matthias-endler.de/2019/maybe-you-dont-need-kubernetes/>`_.
+There was a recent blog post by Matthias Endler on `why you might not need Kubernetes <https://endler.dev/2019/maybe-you-dont-need-kubernetes/>`_.
 I'll try to explain why I believe Kubernetes is worth a close look, even if you just want to run some containers.
 
 .. TEASER_END
