@@ -10,7 +10,7 @@
 .. image:: ../galleries/kubernetes-logo.png
    :class: left
 
-There was a recent blog post by Matthias Endler on `why you might not need Kubernetes <https://matthias-endler.de/2019/maybe-you-dont-need-kubernetes/>`_.
+There was a recent blog post by Matthias Endler on `why you might not need Kubernetes <https://endler.dev/2019/maybe-you-dont-need-kubernetes/>`_.
 I'll try to explain why I believe Kubernetes is worth a close look, even if you just want to run some containers.
 
 .. TEASER_END
@@ -18,7 +18,7 @@ I'll try to explain why I believe Kubernetes is worth a close look, even if you 
 **DISCLAIMER**: No surprise: I'm biased. `We run 100+ Kubernetes clusters at Zalando <https://www.youtube.com/watch?v=4QyecOoPsGU>`_ and I'm heavily invested in the Kubernetes topic (as you can see from `my github repos <https://github.com/hjacobs>`_).
 Nobody needs to hear my opinion, so here it is ;-)
 
-Matthias Endler `writes <https://matthias-endler.de/2019/maybe-you-dont-need-kubernetes/>`_:
+Matthias Endler `writes <https://endler.dev/2019/maybe-you-dont-need-kubernetes/>`_:
 
     "Kubernetes is the 800-pound gorilla of container orchestration.
     It powers some of the biggest deployments worldwide, but it comes with a price tag.
@@ -94,7 +94,7 @@ There are now plenty of options to run the Kubernetes API locally for developmen
 
 While it has never been easier to run Kubernetes locally, the new projects like kind_ and k3s_ still have to mature over time.
 
-Matthias Endler wrote in `his blog post <https://matthias-endler.de/2019/maybe-you-dont-need-kubernetes/>`_:
+Matthias Endler wrote in `his blog post <https://endler.dev/2019/maybe-you-dont-need-kubernetes/>`_:
 
     "The takeaway is: don't use Kubernetes just because everybody else does. Carefully evaluate your requirements and check which tool fits the bill."
 
